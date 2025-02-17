@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HopeBites - Food Donation Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 500px;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        margin: auto;
+      }
+      h2 {
+        text-align: center;
+        color: #14629f;
+      }
+      label {
+        font-weight: bold;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        background: #14629f;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background: #0f4a7b;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Food Donation Form</h2>
+      <form id="donationForm">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="contact">Contact Number:</label>
+        <input type="tel" id="contact" name="contact" required />
+
+        <label for="foodType">Food Type:</label>
+        <select id="foodType" name="foodType" required>
+          <option value="Vegetarian">Vegetarian</option>
+          <option value="Non-Vegetarian">Non-Vegetarian</option>
+          <option value="Packaged Food">Packaged Food</option>
+          <option value="Fresh Fruits">Fresh Fruits</option>
+        </select>
+
+        <label for="quantity">Quantity (in kg/number of packs):</label>
+        <input type="text" id="quantity" name="quantity" required />
+
+        <label for="pickup">Pickup/Drop-off Option:</label>
+        <select id="pickup" name="pickup" required>
+          <option value="Pickup Required">Pickup Required</option>
+          <option value="Will Drop Off">Will Drop Off</option>
+        </select>
+
+        <label for="location">Your Location:</label>
+        <input
+          type="text"
+          id="location"
+          name="location"
+          placeholder="Click 'Get Location'"
+          readonly
+        />
+
+        <button type="button" onclick="getLocation()">Get Location</button>
+        <button type="submit">Submit Donation</button>
+      </form>
+    </div>
+
+    <script>
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            function (position) {
+              document.getElementById("location").value =
+                "Lat: " +
+                position.coords.latitude +
+                ", Lng: " +
+                position.coords.longitude;
+            },
+            function (error) {
+              alert(
+                "Unable to retrieve location. Please allow location access."
+              );
+            }
+          );
+        } else {
+          alert("Geolocation is not supported by your browser.");
+        }
+      }
+
+      document
+        .getElementById("donationForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          alert("Thank you for your donation! We will get in touch soon.");
+          this.reset();
+        });
+    </script>
+  </body>
+</html>
