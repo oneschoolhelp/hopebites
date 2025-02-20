@@ -97,8 +97,8 @@
                                             </ul>
                                         </li>
                                         <li><a href="contact.html">Contact</a></li>
-                                        <li><a href="contact.html">Login</a></li>
-                                        <li><a href="contact.html">Signup</a></li>
+                                        <li><a href="login.html">Login</a></li>
+                                        <li><a href="register.html">Signup</a></li>
                                     </ul>
                                 </nav>
                                 <div class="Appointment">
@@ -623,7 +623,15 @@
             <div class="row">
                 <div class="col-12">
                     <div class="donate_now_btn text-center">
-                        <a href="#" class="boxed-btn4">Donate Now</a>
+                        <button class="donate-button" onclick="openPopup()">Donate Now</button>
+                        <div class="popup" id="donationPopup">
+                            <div class="popup-content">
+                                <h3>Do you want to donate anonymously?</h3>
+                                <button onclick="redirectToBarcode()">Yes</button>
+                                <button onclick="redirectToSignup()">No</button>
+                                <button onclick="closePopup()">Cancel</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -715,7 +723,7 @@
                                     </div>
                                     <div class="info">
                                         <a href="#">
-                                            <h4>School for African 
+                                            <h4>Food for 
                                                 Childrens</h4>
                                         </a>
                                         <span>Jun 12, 2019</span>
@@ -729,7 +737,7 @@
                                     </div>
                                     <div class="info">
                                         <a href="#">
-                                            <h4>School for African 
+                                            <h4>Clothes for 
                                                 Childrens</h4>
                                         </a>
                                         <span>Jun 12, 2019</span>
