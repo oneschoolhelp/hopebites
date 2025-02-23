@@ -134,14 +134,25 @@
       <form id="registrationForm" onsubmit="return validateForm()">
         <!-- First Name & Last Name on the Same Line -->
         <div class="input-group">
-          <label for="country">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Enter name"
-            required
-          />
+          <div class="name-field">
+            <label for="firstName">First Name:</label> &nbsp;
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              placeholder="Enter First Name"
+              required
+            />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="lastName">Last Name:</label> &nbsp;
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              placeholder="Enter Last Name"
+              required
+            />
+          </div>
         </div>
         <div class="input-group">
           <label for="email">Email:</label>
@@ -178,25 +189,68 @@
 
         <div class="error" id="error-message">Passwords do not match!</div>
 
+        <div class="input-group">
+          <label for="mobile">Mobile No:</label>
+          <input
+            type="tel"
+            id="mobile"
+            name="mobile"
+            placeholder="Enter Mobile No"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <div class="Gender-field">
+            <label>Gender:</label> &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" id="male" name="gender" value="male" required />
+            <label for="male">Male</label> &nbsp;&nbsp;&nbsp;&nbsp;
+            <input
+              type="radio"
+              id="female"
+              name="gender"
+              value="female"
+              required
+            />
+            <label for="female">Female</label>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="country">Country:</label>
+          <input
+            type="text"
+            id="country"
+            name="country"
+            placeholder="Enter Country"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="city">City:</label>
+          <input
+            type="text"
+            id="city"
+            name="city"
+            placeholder="Enter City"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="zip">Zip Code:</label>
+          <input
+            type="text"
+            id="zip"
+            name="zip"
+            placeholder="Enter Zip Code"
+            required
+          />
+        </div>
+
         <input type="submit" value="Register" />
       </form>
     </div>
-
-    <script>
-      function validateForm() {
-        const password = document.getElementById("password").value;
-        const confirmPassword =
-          document.getElementById("confirmPassword").value;
-        const errorMessage = document.getElementById("error-message");
-
-        if (password !== confirmPassword) {
-          errorMessage.style.display = "block";
-          return false;
-        } else {
-          errorMessage.style.display = "none";
-          return true;
-        }
-      }
-    </script>
   </body>
 </html>
