@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Login Page</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>HopeBites</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- <link rel="manifest" href="site.webmanifest"> -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
-    <!-- Place favicon.ico in the root directory -->
-
-    <!-- CSS here -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/owl.carousel.min.css" />
     <link rel="stylesheet" href="css/magnific-popup.css" />
@@ -25,8 +21,7 @@
     <link rel="stylesheet" href="css/animate.css" />
     <link rel="stylesheet" href="css/slicknav.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/register.css" />
-    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    <link rel="stylesheet" href="css/login.css" />
   </head>
   <body>
     <header>
@@ -52,18 +47,10 @@
               </div>
               <div class="col-xl-6 col-md-6 col-lg-4">
                 <div class="social_media_links d-none d-lg-block">
-                  <a href="#">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                  <a href="#">
-                    <i class="fa fa-pinterest-p"></i>
-                  </a>
-                  <a href="#">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                  <a href="#">
-                    <i class="fa fa-twitter"></i>
-                  </a>
+                  <a href="#"> <i class="fa fa-facebook"></i> </a>
+                  <a href="#"> <i class="fa fa-pinterest-p"></i> </a>
+                  <a href="#"> <i class="fa fa-linkedin"></i> </a>
+                  <a href="#"> <i class="fa fa-twitter"></i> </a>
                 </div>
               </div>
             </div>
@@ -114,7 +101,7 @@
                         </ul>
                       </li>
                       <li><a href="contact.html">Contact</a></li>
-                      <li><a href="login.html">Login</a></li>
+                      <li><a href="register.html">Signup</a></li>
                     </ul>
                   </nav>
                 </div>
@@ -127,76 +114,24 @@
         </div>
       </div>
     </header>
-    <!-- header-end -->
 
-    <div class="registration-container">
-      <h2 style="text-align: center">Register</h2>
-      <form id="registrationForm" onsubmit="return validateForm()">
-        <!-- First Name & Last Name on the Same Line -->
-        <div class="input-group">
-          <label for="country">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Enter name"
-            required
-          />
-        </div>
-        <div class="input-group">
-          <label for="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="example@mail.com"
-            required
-          />
-        </div>
-
-        <div class="input-group">
-          <label for="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Enter Password"
-            required
-          />
-        </div>
-
-        <div class="input-group">
-          <label for="confirmPassword">Re-type Password:</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            placeholder="Confirm Password"
-            required
-          />
-        </div>
-
-        <div class="error" id="error-message">Passwords do not match!</div>
-
-        <input type="submit" value="Register" />
+    <div class="login-container">
+      <h2>Sign Up</h2>
+      <form action="#" method="post">
+        <input type="text" class="input-field" placeholder="name" required />
+        <input type="text" class="input-field" placeholder="email" required />
+        <input
+          type="password"
+          class="input-field"
+          placeholder="Password"
+          required
+        />
+        <button type="submit" class="login-btn">Sign Up</button>
       </form>
+      <div class="extra-options">
+        <a>Already have an account?</a>
+        <a href="login.html" class="signup-btn">Login</a>
+      </div>
     </div>
-
-    <script>
-      function validateForm() {
-        const password = document.getElementById("password").value;
-        const confirmPassword =
-          document.getElementById("confirmPassword").value;
-        const errorMessage = document.getElementById("error-message");
-
-        if (password !== confirmPassword) {
-          errorMessage.style.display = "block";
-          return false;
-        } else {
-          errorMessage.style.display = "none";
-          return true;
-        }
-      }
-    </script>
   </body>
 </html>
