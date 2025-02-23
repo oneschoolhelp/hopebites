@@ -7,12 +7,10 @@
     background-color: #f9f9f9;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     
-    /* Centering the container */
-    position: relative;
-    margin: 100px auto 20px; /* Ensures space below header */
-    top: 0;
-    left: 0;
-    transform: none;
+    /* Positioning to the right side */
+    position: absolute;
+    right: 20px;
+    top: 120px; /* Adjust to prevent overlap with the header */
 }
 
 /* Ensure it remains responsive */
@@ -23,14 +21,43 @@
     }
 }
 
+
+
+
+
 /* Styling for form elements */
 .input-group {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    margin-bottom: 10px;
+    align-items: center;
 }
 
+.name-field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px; /* Adjust based on your design */
+}
+
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-row input {
+    width: 48%; /* Adjust for spacing */
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 
 label {
     font-weight: bold;
@@ -43,6 +70,9 @@ input[type="tel"] {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
 }
 
 /* Styling the submit button */
@@ -68,6 +98,7 @@ input[type="submit"]:hover {
     font-size: 14px;
     margin-bottom: 10px;
 }
+
 /* Make header fixed */
 .header-area {
     position: fixed;
@@ -82,4 +113,11 @@ input[type="submit"]:hover {
 /* Adjust body padding to prevent content from hiding behind header */
 body {
     padding-top: 100px; /* Adjust based on header height */
+    background-image: url('../img/banner/donation-banner.webp'); /* Adjust path based on folder structure */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
