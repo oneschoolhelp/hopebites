@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,7 @@
     <title>HopeBites</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
@@ -30,6 +31,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
+
 <body>
 
     <header>
@@ -74,7 +76,7 @@
                                     <span style="font-size: 40px;  color: #f8f8f8;">HopeBites</span>
                                 </a>
                             </div>
-                            
+
                         </div>
                         <div class="col-xl-9 col-lg-9">
                             <div class="main-menu">
@@ -97,8 +99,8 @@
                                         <li><a href="contact.html">Contact</a></li>
                                         <li><a href="login.html">Login</a></li>
                                     </ul>
-                                </nav>                           
-                               
+                                </nav>
+
                             </div>
                         </div>
                         <div class="col-12">
@@ -112,23 +114,58 @@
     <!-- header-end -->
 
     <div class="registration-container">
-        
-        <form id="registrationForm" onsubmit="return validateForm()">
-            
-        <!-- First Name & Last Name on the Same Line -->
-        <div class="input-group">
-            <div class="name-field">
-                <div class="label-row">
-                    <label for="fullName">Full Name:*</label>
-                    <label for="email">Email Address:*</label>
-                </div>
-                <div class="input-row">
-                    <input type="text" id="fullName" name="fullName" placeholder="Enter Full Name" required>
-                    <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+
+        <form id="donationForm" onsubmit="return validateForm()"></form>
+        <!-- Donation amount-->
+        <div id="step1">
+            <!-- Radio Buttons Added in Step 2 -->
+            <div class="input-group">
+                <div class="Country-field">
+                    <input type="radio" id="Indian" name="country" value="Inidan" required>
+                    <label for="Indian" class="label">Indian</label> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" id="foreign" name="country" value="foreign" required>
+                    <label for="foreign" class="label">Foreign</label>
                 </div>
             </div>
+
+             <!-- Donation Type Buttons -->
+        <div class="donation-type">
+            <button class="donate-btn active" onclick="toggleDonationType('once')">Give Once</button>
+            <button class="donate-btn" onclick="toggleDonationType('monthly')">Give Monthly</button>
         </div>
-        
+
+        <!-- Donation Amount Selection -->
+        <p class="label">Please select your donation amount (*1 meal | Rs 30/-)</p>
+
+        <div id="donation-options" class="donation-options" >
+            <!-- Buttons will be inserted via JavaScript -->
+        </div>
+
+        <!-- Custom Amount Input -->
+        <input type="number" id="customAmount" placeholder="Enter amount" oninput="validateAmount()">
+        <p id="error-msg" class="error-msg"></p>
+
+        <!-- Total Meals Calculation -->
+        <p class="total-served">Total Served: <span id="totalServed">0</span></p>
+
+         <!-- Continue Button -->
+        <button class="continue-btn" onclick="nextStep()">Continue</button>
+        </div>
+        <!-- First Name & Last Name on the Same Line -->
+        <div id="step2">
+            <div class="input-group">
+                <div class="name-field">
+                    <div class="label-row">
+                        <label for="fullName">Full Name:*</label>
+                        <label for="email">Email Address:*</label>
+                    </div>
+                    <div class="input-row">
+                        <input type="text" id="fullName" name="fullName" placeholder="Enter Full Name" required>
+                        <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+                    </div>
+                </div>
+            </div>
+
             <div class="input-group">
                 <label for="mobile">Contact No:*</label>
                 <input type="tel" id="mobile" name="mobile" placeholder="Enter Contact Number" required>
@@ -154,16 +191,19 @@
                 <input type="text" id="zip" name="zip" placeholder="Enter Zip Code" required>
             </div>
 
+            <button class="back-btn" onclick="prevStep()">Back</button>
             <div class="submit-container">
                 <input type="submit" value="Donate Now">
                 <p class="terms-text">
-                    <i class="fas fa-info-circle"></i> I agree to the 
+                    <i class="fas fa-info-circle"></i> I agree to the
                     <a href="terms.html">Terms</a> and <a href="privacy.html">Privacy Policy</a>
                 </p>
             </div>
+        </div>
         </form>
     </div>
 
-
+    <script src="js/register.js"></script> <!-- Link to external JavaScript -->
 </body>
+
 </html>

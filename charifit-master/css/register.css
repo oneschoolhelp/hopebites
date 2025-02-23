@@ -28,6 +28,7 @@
     flex-direction: column;
     align-items: left;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .name-field {
@@ -57,7 +58,7 @@
     border-radius: 4px;
 }
 
-label {
+.label {
     font-weight: bold;
 }
 
@@ -71,6 +72,7 @@ input[type="tel"] {
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 10px;
+    font-weight: bold;/* Makes text inside input bold */
 }
 
 /* Styling the submit button */
@@ -79,7 +81,7 @@ input[type="tel"] {
     margin-top: 20px; /* Optional: Adjust spacing */
 }
 
-input[type="submit"] {
+.input[type="submit"] {
     width: 30%;
     padding: 10px;
     background-color: rgb(41, 158, 55);
@@ -91,7 +93,7 @@ input[type="submit"] {
     
 }
 
-input[type="submit"]:hover {
+.input[type="submit"]:hover {
     background-color: #0fb300;
     text-align: center;
 }
@@ -110,14 +112,17 @@ input[type="submit"]:hover {
     font-size: 16px;
 }
 
-
-
 /* Error message styling */
 .error {
     display: none;
     color: red;
     font-size: 14px;
     margin-bottom: 10px;
+}
+
+.error-msg {
+    color: red;
+    font-size: 14px;
 }
 
 /* Make header fixed */
@@ -141,4 +146,71 @@ body {
     height: 130vh;
     margin: 0;
     font-family: Arial, sans-serif;
+}
+
+
+/* hidding effect */
+.hidden {
+    display: none;
+}
+
+/* General donation button styling */
+
+.donation-type {
+    margin: 20px 0;
+}
+
+.donate-btn {
+    padding: 5px 10px;
+    margin: 2px;
+    border: 1px solid gray; /* Set border to gray */
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.donate-btn.active {
+    background-color: green;
+    color: white;
+    border-color: green;
+}
+
+.amount-btn {
+    padding: 5px 10px;
+    margin: 2px;
+    border: 1px solid gray; /* Set border to gray */
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+
+
+input[type="number"] {
+    padding: 10px;
+    width: 50%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.error-msg {
+    color: red;
+    font-size: 14px;
+}
+
+.continue-btn {
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
 }
