@@ -104,38 +104,9 @@
                                 </nav>
                                 <div class="Appointment">
                                     <div class="book_btn d-none d-lg-block">
-                                        <button class="donate-button" onclick="openPopup()">Donate Now</button>
-                                        <div class="popup" id="donationPopup">
-                                            <div class="popup-content">
-                                                <h3>Do you want to donate anonymously?</h3>
-                                                <button onclick="redirectToBarcode()">Yes</button>
-                                                <button onclick="redirectToSignup()">No</button>
-                                                <button onclick="closePopup()">Cancel</button>
-                                            </div>
-                                        </div>
+                                        <li><a href="register.html">Make a Donate </a></li>
                                     </div>
                                 </div>
-                                
-                                <script>
-                                    function openPopup() {
-                                        document.getElementById('donationPopup').style.display = 'flex';
-                                    }
-                                
-                                    function closePopup() {
-                                        document.getElementById('donationPopup').style.display = 'none';
-                                    }
-                                
-                                    function redirectToBarcode() {
-                                       // Redirect to the barcode page
-                                        window.location.href = 'barcode.html'; // Change this to your barcode page URL
-                                    }
-                                
-                                    function redirectToSignup() {
-                                        // Redirect to the signup page
-                                        window.location.href = 'register.html'; // Change this to your signup page URL
-                                    }
-                                </script>
-
                             </div>
                         </div>
                         <div class="col-12">

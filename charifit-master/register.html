@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="css/slicknav.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 <body>
@@ -111,15 +112,15 @@
     <!-- header-end -->
 
     <div class="registration-container">
-        <h2 style="text-align: center;">Register</h2>
+        
         <form id="registrationForm" onsubmit="return validateForm()">
             
         <!-- First Name & Last Name on the Same Line -->
         <div class="input-group">
             <div class="name-field">
                 <div class="label-row">
-                    <label for="fullName">Full Name:</label>
-                    <label for="email">Email Address:</label>
+                    <label for="fullName">Full Name:*</label>
+                    <label for="email">Email Address:*</label>
                 </div>
                 <div class="input-row">
                     <input type="text" id="fullName" name="fullName" placeholder="Enter Full Name" required>
@@ -129,13 +130,13 @@
         </div>
         
             <div class="input-group">
-                <label for="mobile">Contact No:</label>
+                <label for="mobile">Contact No:*</label>
                 <input type="tel" id="mobile" name="mobile" placeholder="Enter Contact Number" required>
             </div>
 
             <div class="input-group">
                 <div class="Gender-field">
-                    <label>Gender:</label> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <label>Gender:*</label> &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="radio" id="male" name="gender" value="male" required>
                     <label for="male">Male</label> &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="radio" id="female" name="gender" value="female" required>
@@ -144,21 +145,22 @@
             </div>
 
             <div class="input-group">
-                <label for="country">Country:</label>
+                <label for="country">Country:*</label>
                 <input type="text" id="country" name="country" placeholder="Enter Country" required>
             </div>
 
             <div class="input-group">
-                <label for="city">City:</label>
-                <input type="text" id="city" name="city" placeholder="Enter City" required>
-            </div>
-
-            <div class="input-group">
-                <label for="zip">Zip Code:</label>
+                <label for="zip">Zip Code:*</label>
                 <input type="text" id="zip" name="zip" placeholder="Enter Zip Code" required>
             </div>
 
-            <input type="submit" value="Register">
+            <div class="submit-container">
+                <input type="submit" value="Donate Now">
+                <p class="terms-text">
+                    <i class="fas fa-info-circle"></i> I agree to the 
+                    <a href="terms.html">Terms</a> and <a href="privacy.html">Privacy Policy</a>
+                </p>
+            </div>
         </form>
     </div>
 
