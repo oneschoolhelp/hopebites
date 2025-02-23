@@ -32,6 +32,7 @@
     />
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
   </head>
+
   <body>
     <header>
       <div class="header-area">
@@ -103,22 +104,17 @@
                     <ul id="navigation">
                       <li><a href="index.html">home</a></li>
                       <li><a href="About.html">About</a></li>
-                      <li>
+                      <!-- <li>
                         <a href="#">blog <i class="ti-angle-down"></i></a>
                         <ul class="submenu">
                           <li><a href="blog.html">blog</a></li>
                           <li><a href="single-blog.html">single-blog</a></li>
                         </ul>
-                      </li>
-                      <li>
-                        <a href="#">pages <i class="ti-angle-down"></i></a>
-                        <ul class="submenu">
-                          <li><a href="elements.html">elements</a></li>
-                          <li><a href="Cause.html">Cause</a></li>
-                        </ul>
+                      </li> -->
+                      <li><a href="Cause.html">Cause </i></a>
+                                           
                       </li>
                       <li><a href="contact.html">Contact</a></li>
-                      <li><a href="login.html">Login</a></li>
                     </ul>
                   </nav>
                 </div>
@@ -134,91 +130,170 @@
     <!-- header-end -->
 
     <div class="registration-container">
-      <form id="registrationForm" onsubmit="return validateForm()">
-        <!-- First Name & Last Name on the Same Line -->
+      <form id="donationForm" onsubmit="return validateForm()"></form>
+      <!-- Donation amount-->
+      <div id="step1">
+        <!-- Radio Buttons Added in Step 2 -->
         <div class="input-group">
-          <div class="name-field">
-            <div class="label-row">
-              <label for="fullName">Full Name:*</label>
-              <label for="email">Email Address:*</label>
-            </div>
-            <div class="input-row">
-              <input
-                type="text"
-                id="fullName"
-                name="fullName"
-                placeholder="Enter Full Name"
-                required
-              />
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="example@mail.com"
-                required
-              />
-            </div>
-          </div>
-        </div>
-
-        <div class="input-group">
-          <label for="mobile">Contact No:*</label>
-          <input
-            type="tel"
-            id="mobile"
-            name="mobile"
-            placeholder="Enter Contact Number"
-            required
-          />
-        </div>
-
-        <div class="input-group">
-          <div class="Gender-field">
-            <label>Gender:*</label> &nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="radio" id="male" name="gender" value="male" required />
-            <label for="male">Male</label> &nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="Country-field">
             <input
               type="radio"
-              id="female"
-              name="gender"
-              value="female"
+              id="Indian"
+              name="country"
+              value="Inidan"
               required
             />
-            <label for="female">Female</label>
+            <label for="Indian" class="label">Indian</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input
+              type="radio"
+              id="foreign"
+              name="country"
+              value="foreign"
+              required
+            />
+            <label for="foreign" class="label">Foreign</label>
           </div>
         </div>
 
-        <div class="input-group">
-          <label for="country">Country:*</label>
-          <input
-            type="text"
-            id="country"
-            name="country"
-            placeholder="Enter Country"
-            required
-          />
+        <!-- Donation Type Buttons -->
+        <div class="donation-type">
+          <button
+            class="donate-btn active"
+            onclick="toggleDonationType('once')"
+          >
+            Give Once
+          </button>
+          <button class="donate-btn" onclick="toggleDonationType('monthly')">
+            Give Monthly
+          </button>
         </div>
 
-        <div class="input-group">
-          <label for="zip">Zip Code:*</label>
-          <input
-            type="text"
-            id="zip"
-            name="zip"
-            placeholder="Enter Zip Code"
-            required
-          />
+        <!-- Donation Amount Selection -->
+        <p class="label">
+          Please select your donation amount (*1 meal | Rs 30/-)
+        </p>
+
+        <div id="donation-options" class="donation-options">
+          <!-- Buttons will be inserted via JavaScript -->
         </div>
 
-        <div class="submit-container">
-          <input type="submit" value="Donate Now" />
-          <p class="terms-text">
-            <i class="fas fa-info-circle"></i> I agree to the
-            <a href="terms.html">Terms</a> and
-            <a href="privacy.html">Privacy Policy</a>
-          </p>
+        <!-- Custom Amount Input -->
+        <input
+          type="number"
+          id="customAmount"
+          placeholder="Enter amount"
+          oninput="validateAmount()"
+        />
+        <p id="error-msg" class="error-msg"></p>
+
+        <!-- Total Meals Calculation -->
+        <p class="total-served">
+          Total Served: <span id="totalServed">0</span>
+        </p>
+
+        <!-- Continue Button -->
+        <div class="button-container">
+          <button class="continue-btn" onclick="nextStep()">Proceed To Donate</button>
+        </div>
+      </div>
+      <form id="registrationForm" onsubmit="return validateForm()">
+        <!-- First Name & Last Name on the Same Line -->
+        <div id="step2">
+          <div class="input-group">
+            <div class="name-field">
+              <div class="label-row">
+                <label for="fullName">Full Name:*</label>
+                <label for="email">Email Address:*</label>
+              </div>
+              <div class="input-row">
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  placeholder="Enter Full Name"
+                  required
+                />
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="example@mail.com"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="mobile">Contact No:*</label>
+            <input
+              type="tel"
+              id="mobile"
+              name="mobile"
+              placeholder="Enter Contact Number"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <div class="Gender-field">
+              <label>Gender:*</label> &nbsp;&nbsp;&nbsp;&nbsp;
+              <input
+                type="radio"
+                id="male"
+                name="gender"
+                value="male"
+                required
+              />
+              <label for="male">Male</label> &nbsp;&nbsp;&nbsp;&nbsp;
+              <input
+                type="radio"
+                id="female"
+                name="gender"
+                value="female"
+                required
+              />
+              <label for="female">Female</label>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="country">Country:*</label>
+            <input
+              type="text"
+              id="country"
+              name="country"
+              placeholder="Enter Country"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="zip">Zip Code:*</label>
+            <input
+              type="text"
+              id="zip"
+              name="zip"
+              placeholder="Enter Zip Code"
+              required
+            />
+          </div>
+
+          <button class="back-btn" onclick="prevStep()">Back</button>
+          <div class="submit-container">
+            <input type="submit" value="Donate Now" />
+            <p class="terms-text">
+              <i class="fas fa-info-circle"></i> I agree to the
+              <a href="terms.html">Terms</a> and
+              <a href="privacy.html">Privacy Policy</a>
+            </p>
+          </div>
         </div>
       </form>
     </div>
+
+    <script src="js/register.js"></script>
+    <!-- Link to external JavaScript -->
   </body>
 </html>
