@@ -1,6 +1,6 @@
 /* Ensure the registration container doesn't overlap with the header */
 .registration-container {
-    width: 50%;
+    width: 40%;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -9,8 +9,9 @@
     
     /* Positioning to the right side */
     position: absolute;
+    margin: 100px auto 20px; /* Ensures space below header */
     right: 20px;
-    top: 120px; /* Adjust to prevent overlap with the header */
+   
 }
 
 /* Ensure it remains responsive */
@@ -21,22 +22,19 @@
     }
 }
 
-
-
-
-
 /* Styling for form elements */
 .input-group {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
+    font-weight: bold;
 }
 
 .name-field {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 400px; /* Adjust based on your design */
+    max-width: 300px; /* Adjust based on your design */
 }
 
 .label-row {
@@ -76,20 +74,43 @@ input[type="tel"] {
 }
 
 /* Styling the submit button */
+.submit-container {
+    text-align: center; /* Centers the button */
+    margin-top: 20px; /* Optional: Adjust spacing */
+}
+
 input[type="submit"] {
-    width: 100%;
+    width: 30%;
     padding: 10px;
-    background-color: #007bff;
+    background-color: rgb(41, 158, 55);
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    
 }
 
 input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #0fb300;
+    text-align: center;
 }
+.terms-text {
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px; /* Space between icon and text */
+}
+
+.terms-text i {
+    color: gray; /* Makes 'i' icon red */
+    font-size: 16px;
+}
+
+
 
 /* Error message styling */
 .error {
@@ -112,12 +133,12 @@ input[type="submit"]:hover {
 
 /* Adjust body padding to prevent content from hiding behind header */
 body {
-    padding-top: 100px; /* Adjust based on header height */
+    padding-top: 130px; /* Adjust based on header height */
     background-image: url('../img/banner/donation-banner.webp'); /* Adjust path based on folder structure */
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 130vh;
     margin: 0;
     font-family: Arial, sans-serif;
 }
