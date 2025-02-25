@@ -38,21 +38,13 @@ body {
 }
 
 /* Styling for form elements */
-.input-group {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    font-weight: bold;
-    font-size: 18px;
-    color: black;
-    margin-bottom: 10px;
-}
+
 .radio-label {
     font-size: 20px;
     font-weight: bold;
     color: black;
 }
-label {
+.label {
     font-size: 12px;
     font-weight: bolder;
     align-items: left;
@@ -163,22 +155,34 @@ label {
     font-size: 12px;
     text-align: center;
 }
-
+.input-group {
+    flex-direction: column;
+    align-items: left;
+    font-weight: bolder;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
 .name-field {
-    display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 300px;
+    max-width: 150px;
     /* Adjust based on your design */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .label-row {
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-    margin-bottom: 5px;
+    flex-direction: column;
+    width: 100%;
+    max-width: 150px;
+    font-weight: bold;  
+    margin-bottom: 10px;
+    color: black;
 }
-
+.label-row::after {
+    content: "*"; 
+    color: red; 
+    margin-left: 1px; /* Adds a small gap between text and asterisk */
+}
 .input-row {
     display: flex;
     justify-content: space-between;
@@ -215,7 +219,7 @@ input[type="tel"] {
     /* Optional: Adjust spacing */
 }
 
-.input[type="submit"] {
+input[type="submit"] {
     width: 30%;
     padding: 10px;
     background-color: rgb(41, 158, 55);
@@ -226,7 +230,7 @@ input[type="tel"] {
     font-size: 16px;
 }
 
-.input[type="submit"]:hover {
+input[type="submit"]:hover {
     background-color: #0fb300;
     text-align: center;
 }
@@ -317,26 +321,29 @@ input[type="number"] {
 
 /*end continus button*/
 .submit-container {
-    text-align: center;
-    margin-top: 20px;
+    text-align: left;
+    margin-top: 10px;
 }
 
-.submit-container input[type="submit"] {
-    background-color: #28a745;
-    /* Green color */
+/* Button Styling */
+.donate-btn {
+    background-color: #28a745; /* Green color */
     color: white;
     border: none;
-    padding: 12px 24px;
-    border-radius: 5px;
+    width: 40%;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    animation: bounce-effect 1.5s infinite alternate ease-in-out;
 }
 
-.submit-container input[type="submit"]:hover {
-    background-color: #218838;
-    /* Darker green on hover */
+/* Bouncing Effect - Moves Front and Back */
+@keyframes bounce-effect {
+    0% { transform: scale(1); }  /* Normal size */
+    100% { transform: scale(1.1); } /* Slightly bigger */
 }
-
 .terms-text {
     margin-top: 10px;
     font-size: 14px;
@@ -349,4 +356,24 @@ input[type="number"] {
 
 .terms-text a:hover {
     text-decoration: underline;
+}
+
+.back-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Smaller size */
+    height: 40px;
+    border: 1px;
+    border-radius: 50%;
+    background-color: #d4edda; /* Light green */
+    color: #155724; /* Dark green for contrast */
+    font-size: 24px; /* Make arrow thicker */
+    font-weight: bolder;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.back-btn:hover {
+    background-color: #c3e6cb; /* Slightly darker green on hover */
 }

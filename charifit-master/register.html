@@ -164,37 +164,42 @@
         </div>
         <!-- First Name & Last Name on the Same Line -->
         <div id="step2">
+            <button class="back-btn" onclick="prevStep()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+            </button>
+
             <div class="input-group">
-                <div class="name-field">
-                    <div class="label-row">
-                        <label for="fullName">Full Name:*</label>
-                        <label for="email">Email Address:*</label>
+                <div>
+                    <div class="input-row">
+                        <label  class="label-row" for="fullName" >Full Name:</label>
+                        <label class="label-row" for="email">Email Address:</label>
                     </div>
                     <div class="input-row">
-                        <input type="text" id="fullName" name="fullName" placeholder="Enter Full Name" required />
-                        <input type="email" id="email" name="email" placeholder="example@mail.com" required />
+                        <input class="name-field" type="text" id="fullName" name="fullName" placeholder="Enter Full Name" required />
+                        <input class="name-field" type="email" id="email" name="email" placeholder="example@mail.com" required />
                     </div>
                 </div>
             </div>
-
             <div class="input-group">
-                <label for="mobile">Contact No:*</label>
+                <label class="label-row" for="mobile">Contact No:</label>
                 <input type="tel" id="mobile" name="mobile" placeholder="Enter Contact Number" required />
             </div>
 
             <div class="input-group">
-                <label for="country">Country:*</label>
+                <label class="label-row" for="country">Country:</label>
                 <input type="text" id="country" name="country" placeholder="Enter Country" required />
             </div>
 
             <div class="input-group">
-                <label for="zip">Zip Code:*</label>
+                <label class="label-row" for="zip">Zip Code:</label>
                 <input type="text" id="zip" name="zip" placeholder="Enter Zip Code" required />
             </div>
-
-            <button class="back-btn" onclick="prevStep()">Back</button>
             <div class="submit-container">
-                <input type="submit" value="Donate Now" />
+                <button class="donate-btn">Donate Now</button>
+            </div>
                 <p class="terms-text">
                     <i class="fas fa-info-circle"></i> I agree to the
                     <a href="terms.html">Terms</a> and
