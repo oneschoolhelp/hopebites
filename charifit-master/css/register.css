@@ -1,262 +1,352 @@
+/* Adjust body padding to prevent content from hiding behind header */
+body {
+    padding-top: 130px;
+    /* Adjust based on header height */
+    background-image: url("../img/banner/donation-banner.webp");
+    /* Adjust path based on folder structure */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 130vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
 /* Ensure the registration container doesn't overlap with the header */
 .registration-container {
-  width: 40%;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #f9f9f9;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    
 
-  /* Positioning to the right side */
-  position: absolute;
-  margin: 100px auto 20px; /* Ensures space below header */
-  right: 20px;
+    /* Positioning to the right side */
+    position: absolute;
+    margin: 100px auto 20px;
+    /* Ensures space below header */
+    right: 20px;
 }
 
 /* Ensure it remains responsive */
 @media (max-width: 768px) {
-  .registration-container {
-    width: 80%;
-    margin: 120px auto 20px;
-  }
+    .registration-container {
+        width: 50%;
+        margin: 12opx auto 20px;
+    }
 }
 
 /* Styling for form elements */
 .input-group {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  font-weight: bold;
-  margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+    margin-bottom: 10px;
+}
+.radio-label {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+label {
+    font-size: 12px;
+    font-weight: bolder;
+    align-items: left;
+}
+.radio-group label::before {
+    content: "";
+    position: relative;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: 2px solid green;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.radio-group input[type="radio"]:checked + label::before {
+    background-color: green;
+}
+.label strong {
+    font-weight: bolder;
+}
+
+/* hidding effect */
+.hidden {
+    display: none;
+}
+
+/* General donation button styling */
+
+.donation-type {
+    margin: 10px 0px;
+}
+
+.donate-btn {
+    padding: 5px 5px;
+    margin: 5px;
+    border: 1px solid gray;
+    /* Set border to gray */
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    font-size: 14px;
+    width: 150px;
+    height: 30px;
+}
+
+.donate-btn.active {
+    background-color: green;
+    color: white;
+    border-color: darkgreen;
+}
+
+.amount-btn {
+    padding: 5px 10px;
+    margin: 2px;
+    border: 1px solid gray;
+    /* Set border to gray */
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.amount-btn.active {
+    background-color: green;
+    color: white;
+    border-color: darkgreen;
+}
+
+/* Amount btn */
+.donation-options {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    /* Adjust spacing between buttons */
+    max-width: 400px;
+    /* Adjust based on your layout */
+    margin: 0 auto;
+}
+
+.donation-options button {
+    flex: 1 1 calc(33.33% - 10px);
+    /* Ensure 3 buttons per row */
+    min-width: 50px;
+    /* Adjust button width as needed */
+    padding: 5px;
+    text-align: center;
+    border: 1px solid gray;
+    /* Light border */
+    background-color: white;
+    /* Default white */
+    color: black;
+    /* Text color */
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.total-served {
+    padding: 8px;
+    font-size: 12px;
+    text-align: center;
 }
 
 .name-field {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 300px; /* Adjust based on your design */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    /* Adjust based on your design */
 }
 
 .label-row {
-  display: flex;
-  justify-content: space-between;
-  font-weight: bold;
-  margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
 .input-row {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .input-row input {
-  width: 48%; /* Adjust for spacing */
-  padding: 8px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.label {
-  font-weight: bold;
+    width: 48%;
+    /* Adjust for spacing */
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="tel"] {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
-  box-sizing: border-box;
-  margin-bottom: 10px;
-  font-weight: bold; /* Makes text inside input bold */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    font-weight: bold;
+    /* Makes text inside input bold */
 }
 
 /* Styling the submit button */
 .submit-container {
-  text-align: center; /* Centers the button */
-  margin-top: 20px; /* Optional: Adjust spacing */
+    text-align: center;
+    /* Centers the button */
+    margin-top: 20px;
+    /* Optional: Adjust spacing */
 }
 
 .input[type="submit"] {
-  width: 30%;
-  padding: 10px;
-  background-color: rgb(41, 158, 55);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
+    width: 30%;
+    padding: 10px;
+    background-color: rgb(41, 158, 55);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 .input[type="submit"]:hover {
-  background-color: #0fb300;
-  text-align: center;
+    background-color: #0fb300;
+    text-align: center;
 }
+
 .terms-text {
-  font-size: 14px;
-  color: #555;
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px; /* Space between icon and text */
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    /* Space between icon and text */
 }
 
 .terms-text i {
-  color: gray; /* Makes 'i' icon red */
-  font-size: 16px;
+    color: gray;
+    /* Makes 'i' icon red */
+    font-size: 16px;
 }
 
 /* Error message styling */
 .error {
-  display: none;
-  color: red;
-  font-size: 14px;
-  margin-bottom: 10px;
+    display: none;
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
 .error-msg {
-  color: red;
-  font-size: 14px;
+    color: red;
+    font-size: 14px;
 }
 
 /* Make header fixed */
 .header-area {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1000; /* Ensure it stays on top */
-  background-color: white; /* Adjust color if needed */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds slight shadow */
-}
-
-/* Adjust body padding to prevent content from hiding behind header */
-body {
-  padding-top: 130px; /* Adjust based on header height */
-  background-image: url("../img/banner/donation-banner.webp"); /* Adjust path based on folder structure */
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 130vh;
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-/* hidding effect */
-.hidden {
-  display: none;
-}
-
-/* General donation button styling */
-
-.donation-type {
-  margin: 20px 0;
-}
-
-.donate-btn {
-  padding: 5px 10px;
-  margin: 2px;
-  border: 1px solid gray; /* Set border to gray */
-  border-radius: 5px;
-  background-color: white;
-  color: black;
-  cursor: pointer;
-  font-size: 12px;
-}
-
-.donate-btn.active {
-  background-color: green;
-  color: white;
-  border-color: green;
-}
-
-.amount-btn {
-  padding: 5px 10px;
-  margin: 2px;
-  border: 1px solid gray; /* Set border to gray */
-  border-radius: 5px;
-  background-color: white;
-  color: black;
-  cursor: pointer;
-  font-size: 16px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    /* Ensure it stays on top */
+    background-color: white;
+    /* Adjust color if needed */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    /* Optional: Adds slight shadow */
 }
 
 input[type="number"] {
-  padding: 10px;
-  width: 50%;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  text-align: center;
+    position: relative;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: Left;
+    font-size: 12px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
 }
 
 .error-msg {
-  color: red;
-  font-size: 14px;
+    color: red;
+    font-size: 12px;
 }
 
-.continue-btn {
-  padding: 10px 20px;
-  background-color: #ff0000;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-top: 10px;
-}
 /*start continus button*/
 .button-container {
-  text-align: center; /* Centers the button horizontally */
-  margin-top: 20px;
+    text-align: center;
+    /* Centers the button horizontally */
+    margin-top: 8px;
 }
 
 .continue-btn {
-  background-color: #28a745; /* Green color */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
+    padding: 10px 10px;
+    width: 100%;
+    background-color: #28a745;
+    /* Green color */
+    color: white;
+    border: none;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .continue-btn:hover {
-  background-color: #218838; /* Darker green on hover */
+    background-color: #218838;
+    /* Darker green on hover */
 }
 
 /*end continus button*/
 .submit-container {
-  text-align: center;
-  margin-top: 20px;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .submit-container input[type="submit"] {
-  background-color: #28a745; /* Green color */
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
+    background-color: #28a745;
+    /* Green color */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 .submit-container input[type="submit"]:hover {
-  background-color: #218838; /* Darker green on hover */
+    background-color: #218838;
+    /* Darker green on hover */
 }
 
 .terms-text {
-  margin-top: 10px;
-  font-size: 14px;
+    margin-top: 10px;
+    font-size: 14px;
 }
 
 .terms-text a {
-  color: #007bff;
-  text-decoration: none;
+    color: #007bff;
+    text-decoration: none;
 }
 
 .terms-text a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }

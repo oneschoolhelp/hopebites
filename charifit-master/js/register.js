@@ -2,9 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Ensure Step 1 is visible at the start
   document.getElementById("step1").classList.remove("hidden");
   document.getElementById("step2").classList.add("hidden");
-});
-
-document.addEventListener("DOMContentLoaded", function () {
   toggleDonationType("once"); // Set default donation type
 });
 
@@ -21,21 +18,31 @@ function toggleDonationType(type) {
 
   let amounts =
     type === "once"
-      ? [50000, 25000, 100000, 5000, 2500, 1000]
+      ? [50000, 25000, 10000, 5000, 2500, 1000]
       : [5000, 3000, 2000, 1000, 500, 250];
 
   amounts.forEach((amount) => {
     let button = document.createElement("button");
     button.className = "amount-btn";
     button.innerText = amount.toLocaleString();
-    button.onclick = () => selectAmount(amount);
+    button.addEventListener("click", function () {
+      selectAmount(this, amount); // Pass `this` (the button itself) and `amount`
+    });
     donationOptions.appendChild(button);
   });
 }
 
-function selectAmount(amount) {
+function selectAmount(selectedButton, amount) {
+  // Remove 'active' class from all amount buttons
+  document.querySelectorAll(".amount-btn").forEach((btn) => btn.classList.remove("active"));
+
+  // Add 'active' class to the selected button
+  selectedButton.classList.add("active");
+
+    // Set selected amount
   document.getElementById("customAmount").value = amount;
   validateAmount();
+  
 }
 
 function validateAmount() {
