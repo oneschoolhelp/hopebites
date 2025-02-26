@@ -1,5 +1,5 @@
 /* Adjust body padding to prevent content from hiding behind header */
-body {
+.body {
     padding-top: 130px;
     /* Adjust based on header height */
     background-image: url("../img/banner/donation-banner.webp");
@@ -20,13 +20,15 @@ body {
     border-radius: 10px;
     background-color: white;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    
+   
 
     /* Positioning to the right side */
     position: absolute;
     margin: 100px auto 20px;
     /* Ensures space below header */
     right: 20px;
+    top: 100px; /* Adjust based on the height of the navigation bar */
+   
 }
 
 /* Ensure it remains responsive */
@@ -376,4 +378,16 @@ input[type="number"] {
 
 .back-btn:hover {
     background-color: #c3e6cb; /* Slightly darker green on hover */
+}
+
+.custom-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px; /* Adjust height as needed */
+    background-color: ; /* Light grey background */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 20px;
+    text-align: center;
 }
