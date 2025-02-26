@@ -1,18 +1,14 @@
 /* Adjust body padding to prevent content from hiding behind header */
 .body {
-    padding-top: 130px;
     /* Adjust based on header height */
     background-image: url("../img/banner/donation-banner.webp");
     /* Adjust path based on folder structure */
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    height: 116vh;
+    height: 126vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    border: none;
 }
 
 .body + * { 
