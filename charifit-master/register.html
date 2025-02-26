@@ -27,13 +27,16 @@
     <link rel="stylesheet" href="css/slicknav.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/register.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 
 <body>
+
+    <!-- header-start -->
     <header>
-        <div class="header-area">
+        <div class="header-area ">
             <div class="header-top_area">
                 <div class="container-fluid">
                     <div class="row">
@@ -45,50 +48,79 @@
                                 </ul>
                             </div>
                         </div>
-                       
-                </div>
-            </div>
-            <div id="sticky-header" class="main-header-area">
-                <div class="container-fluid">
-                    <div class="row align-items-center">
-                        <div class="col-xl-3 col-lg-3">
-                            <div class="logo">
-                                <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-                                    <img src="img/food.png" alt="" style="height: 50px; margin-right: 10px" />
-                                    <span style="font-size: 40px; color: #f8f8f8">HopeBites</span>
+                        <div class="col-xl-6 col-md-6 col-lg-4">
+                            <div class="social_media_links d-none d-lg-block">
+                                <a href="https://www.facebook.com/share/12JNdz4pHvc/?mibextid=wwXIfr">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="https://pin.it/7772bCxee">
+                                    <i class="fa fa-pinterest-p"></i>
+                                </a>
+                                <a
+                                    href="https://www.linkedin.com/in/tauseef-tanwir-2b656624b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                                <a href="https://x.com/tauseef_tanwir?s=21">
+                                    <i class="fa fa-twitter"></i>
                                 </a>
                             </div>
                         </div>
-                        <div class="col-xl-9 col-lg-9">
-                            <div class="main-menu">
-                                <nav>
-                                    <ul id="navigation">
-                                        <li><a href="index.html">home</a></li>
-                                        <li><a href="About.html">About</a></li>
-                                        <!-- <li>
-                        <a href="#">blog <i class="ti-angle-down"></i></a>
-                        <ul class="submenu">
-                          <li><a href="blog.html">blog</a></li>
-                          <li><a href="single-blog.html">single-blog</a></li>
-                        </ul>
-                      </li> -->
-                                        <li><a href="Cause.html">Cause </i></a>
-
-                                        </li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                    </ul>
-                                </nav>
+                    </div>
+                </div>
+                <div id="sticky-header" class="main-header-area">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <div class="col-xl-3 col-lg-3">
+                                <div class="logo">
+                                    <a href="index.html"
+                                        style="display: flex; align-items: center; text-decoration: none;">
+                                        <img src="img/food.png" alt="" style="height: 50px; margin-right: 10px;">
+                                        <div>
+                                            <span style="font-size: 40px; color: #f8f8f8;">HopeBites</span><br>
+                                            <span style="font-size: 14px; color: #0e0a0a;">A Meal of Hope.</span>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="mobile_menu d-block d-lg-none"></div>
+
+                            <div class="col-xl-9 col-lg-9">
+                                <div class="main-menu">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="index.html">home</a></li>
+                                            <li><a href="About.html">About</a></li>
+                                            <!-- <li><a href="#">blog <i class="ti-angle-down"></i></a>
+                                            <ul class="submenu">
+                                                <li><a href="blog.html">blog</a></li>
+                                                <li><a href="single-blog.html">single-blog</a></li>
+                                            </ul>
+                                        </li> -->
+                                            <li><a href="Cause.html">Cause </i></a>
+
+                                            </li>
+                                            <li><a href="contact.html">Contact</a></li>
+
+
+                                        </ul>
+                                    </nav>
+                                    <div class="Appointment">
+                                        <div class="book_btn d-none d-lg-block">
+                                            <li><a href="register.html">Make a Donate </a></li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </header>
     <!-- header-end -->
+
+
     <div class="registration-container">
         <!-- Donation amount-->
         <div id="step1">
@@ -129,12 +161,12 @@
                 Thanks to you, <span id="totalServed" class="label">0</span> meals will be served to those in need.
             </p>
             <img src="img/payment/payment-icons.webp" alt="" style="height: 40px; display: block; margin: 0 auto;" />
-            
+
             <!-- Continue Button -->
             <div class="button-container">
                 <button class="continue-btn" onclick="nextStep()">Proceed To Donate</button>
             </div>
-        
+
         </div>
         <!-- First Name & Last Name on the Same Line -->
         <div id="step2">
@@ -178,7 +210,7 @@
                 <button class="donateNow-btn">Donate Now</button>
             </div>
             <p class="terms-text">
-                <i class="fas fa-info-circle"></i> I agree to the
+                &#9432; I agree to the
                 <a href="terms.html">Terms</a> and
                 <a href="privacy.html">Privacy Policy</a>
             </p>
@@ -187,7 +219,7 @@
     </form>
     </div>
     <div class="body d-flex align-items-center justify-content-center">
-        
+
     </div>
 
     <!-- popular_causes_area_start  -->

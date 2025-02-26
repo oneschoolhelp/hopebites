@@ -6,7 +6,7 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    height: 126vh;
+    height: 130vh;
     margin: 0;
     font-family: Arial, sans-serif;
 }
@@ -31,7 +31,7 @@
     margin: 100px auto 20px;
     /* Ensures space below header */
     right: 20px;
-    top: 100px; /* Adjust based on the height of the navigation bar */
+    top: 120px; /* Adjust based on the height of the navigation bar */
    
 }
 
@@ -252,11 +252,6 @@ input[type="submit"]:hover {
     /* Space between icon and text */
 }
 
-.terms-text i {
-    color: gray;
-    /* Makes 'i' icon red */
-    font-size: 16px;
-}
 
 /* Error message styling */
 .error {
