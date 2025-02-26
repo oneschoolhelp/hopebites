@@ -7,9 +7,17 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    height: 130vh;
+    height: 116vh;
     margin: 0;
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.body + * { 
+    margin-top: 0 !important; /* Removes unwanted spacing below */
+    padding-top: 0 !important;
 }
 
 /* Ensure the registration container doesn't overlap with the header */
