@@ -160,14 +160,18 @@
                                     }]
                                 }
                             ];
+                            var location = { lat: 17.4483, lng: 78.3492 }; // MANUU, Gachibowli, Hyderabad
                             var map = new google.maps.Map(document.getElementById('map'), {
-                                center: {
-                                    lat: 17.4483, // Latitude for MANUU, Gachibowli
-                                    lng: 78.3492  // Longitude for MANUU, Gachibowli
-                                },
-                                zoom: 12,
+                                center: location,
+                                zoom: 15,
                                 styles: grayStyles,
                                 scrollwheel: false
+                            });
+
+                            var marker = new google.maps.Marker({
+                            position: location,
+                            map: map,
+                            title: "Maulana Azad National Urdu University (MANUU), Gachibowli, Hyderabad"
                             });
                         }
                     </script>
