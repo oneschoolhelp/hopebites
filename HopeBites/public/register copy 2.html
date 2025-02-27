@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>HopeBites</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/food.png" />
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/themify-icons.css" />
+    <link rel="stylesheet" href="css/nice-select.css" />
+    <link rel="stylesheet" href="css/flaticon.css" />
+    <link rel="stylesheet" href="css/gijgo.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/slicknav.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/register.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+</head>
+
+<body>
+    <header>
+        <div class="header-area">
+            <div class="header-top_area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-6 col-md-12 col-lg-8">
+                            <div class="short_contact_list">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-phone"></i> +91-7371975296</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-envelope"></i>tauseeftanwir@gmail.com</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-md-6 col-lg-4">
+                            <div class="social_media_links d-none d-lg-block">
+                                <a href="#">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-pinterest-p"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sticky-header" class="main-header-area">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-lg-3">
+                            <div class="logo">
+                                <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+                                    <img src="img/food.png" alt="" style="height: 50px; margin-right: 10px" />
+                                    <span style="font-size: 40px; color: #f8f8f8">HopeBites</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 col-lg-9">
+                            <div class="main-menu">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a href="index.html">home</a></li>
+                                        <li><a href="About.html">About</a></li>
+                      
+                                        <li><a href="Cause.html">Cause </i></a>
+
+                                        </li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-end -->
+    <div class="registration-container">
+        <!-- <form id="donationForm" onsubmit="return validateForm()"></form> -->
+        <form id="donationForm">
+
+        <!-- Donation amount-->
+        <div id="step1">
+            <!-- Radio Buttons Added in Step 2 -->
+            <div class="radio-group" class="label">
+                <input type="radio" id="Indian" name="country" value="Indian" checked />
+
+
+                <label for="Indian" class="radio-label">Indian</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" id="foreign" name="country" value="Foreign" />
+                <label for="foreign" class="radio-label">Foreign</label>
+            </div>
+
+            <!-- Donation Type Buttons -->
+            <div class="donation-type">
+                <button class="donate-btn active" onclick="toggleDonationType('once')">
+                    Give Once
+                </button>
+                <button class="donate-btn" onclick="toggleDonationType('monthly')">
+                    Give Monthly
+                </button>
+            </div>
+
+            <!-- Donation Amount Selection -->
+            <p class="label">
+                <strong>Please select your donation amount</strong> (*1 meal | Rs 30/-)
+            </p>
+
+            <div id="donation-options" class="donation-options">
+                <!-- Buttons will be inserted via JavaScript -->
+            </div>
+
+            <!-- Custom Amount Input -->
+            <input type="number" id="customAmount" placeholder="Enter amount" oninput="validateAmount()" />
+            <p id="error-msg" class="error-msg"></p>
+
+            <!-- Total Meals Calculation -->
+            <p class="total-served">
+                Thanks to you, <span id="totalServed" class="label">0</span> meals will be served to those in need.
+            </p>
+            <img src="img/payment/payment-icons.webp" alt="" style="height: 40px; display: block; margin: 0 auto;" />
+            <!-- Continue Button -->
+            <div class="button-container">
+                <button class="continue-btn" onclick="nextStep()">Proceed To Donate</button>
+            </div>
+        </div>
+        <!-- First Name & Last Name on the Same Line -->
+        <div id="step2">
+            <button class="back-btn" onclick="prevStep()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+            </button>
+
+            <div class="input-group">
+                <div>
+                    <div class="input-row">
+                        <label class="label-row" for="fullName">Full Name:</label>
+                        <label class="label-row" for="email">Email Address:</label>
+                    </div>
+                    <div class="input-row">
+                        <input class="name-field" type="text" id="fullName" name="fullName"
+                            placeholder="Enter Full Name" required />
+                        <input class="name-field" type="email" id="email" name="email" placeholder="example@mail.com"
+                            required />
+                    </div>
+                </div>
+            </div>
+            <div class="input-group">
+                <label class="label-row" for="mobile">Contact No:</label>
+                <input type="tel" id="mobile" name="mobile" placeholder="Enter Contact Number" required />
+            </div>
+
+            <div class="input-group">
+                <label class="label-row" for="country">Country:</label>
+                <input type="text" id="country" name="country" placeholder="Enter Country" required />
+            </div>
+
+            <div class="input-group">
+                <label class="label-row" for="zip">Zip Code:</label>
+                <input type="text" id="zip" name="zip" placeholder="Enter Zip Code" required />
+            </div>
+            <div class="submit-container">
+                <button class="donateNow-btn">Donate Now</button>
+            </div>
+            <p class="terms-text">
+                <i class="fas fa-info-circle"></i> I agree to the
+                <a href="terms.html">Terms</a> and
+                <a href="privacy.html">Privacy Policy</a>
+            </p>
+        </div>
+    </div>
+    </form>
+    </div>
+    <div class="body d-flex align-items-center justify-content-center">
+        
+    </div>
+
+    <!-- popular_causes_area_start  -->
+    <div class="popular_causes_area pt-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_cause">
+                        <div class="thumb">
+                            <img src="img/causes/1.png" alt="">
+                        </div>
+                        <div class="causes_content">
+                            <div class="custom_progress_bar">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 30%;" aria-valuenow="30"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                        <span class="progres_count">
+                                            30%
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="balance d-flex justify-content-between align-items-center">
+                                <span>Raised: $5000.00 </span>
+                                <span>Goal: $9000.00 </span>
+                            </div>
+                            <a href="cause_details.html">
+                                <h4>Help us to Send Food</h4>
+                            </a>
+                            <p>At HopeBites, our mission is simple—send food, spread hope, and serve humanity. But we
+                                can’t do it alone. Your contribution—whether big or small—goes directly towards
+                                preparing, packing, and delivering nutritious meals to those who need them most.</p>
+                            <a class="read_more" href="cause_details.html">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_cause">
+                        <div class="thumb">
+                            <img src="img/causes/2.png" alt="">
+                        </div>
+                        <div class="causes_content">
+                            <div class="custom_progress_bar">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 30%;" aria-valuenow="30"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                        <span class="progres_count">
+                                            30%
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="balance d-flex justify-content-between align-items-center">
+                                <span>Raised: $5000.00 </span>
+                                <span>Goal: $9000.00 </span>
+                            </div>
+                            <a href="cause_details.html">
+                                <h4>Clothes For Everyone</h4>
+                            </a>
+                            <p>At HopeBites, we believe that everyone deserves the comfort and confidence that comes
+                                with having clean, warm clothing. Your kindness can help us provide clothes to children,
+                                families, and individuals in need—restoring not just warmth but also dignity.</p>
+                            <a class="read_more" href="cause_details.html">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_cause">
+                        <div class="thumb">
+                            <img src="img/causes/3.png" alt="">
+                        </div>
+                        <div class="causes_content">
+                            <div class="custom_progress_bar">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 30%;" aria-valuenow="30"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                        <span class="progres_count">
+                                            30%
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="balance d-flex justify-content-between align-items-center">
+                                <span>Raised: $5000.00 </span>
+                                <span>Goal: $9000.00 </span>
+                            </div>
+                            <a href="cause_details.html">
+                                <h4>Water For All Children</h4>
+                            </a>
+
+                            <p>Around the world, millions of children suffer due to the lack of clean drinking water,
+                                leading to illness, hunger, and lost opportunities. HopeBites is on a mission to ensure
+                                that no child is left thirsty or vulnerable because of water scarcity.</p>
+                            <a class="read_more" href="cause_details.html">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_cause">
+                        <div class="thumb">
+                            <img src="img/causes/4.png" alt="">
+                        </div>
+                        <div class="causes_content">
+                            <div class="custom_progress_bar">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 30%;" aria-valuenow="30"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                        <span class="progres_count">
+                                            30%
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="balance d-flex justify-content-between align-items-center">
+                                <span>Raised: $5000.00 </span>
+                                <span>Goal: $9000.00 </span>
+                            </div>
+                            <a href="cause_details.html">
+                                <h4>Help us to Send Food</h4>
+                            </a>
+
+                            <p>At HopeBites, our mission is simple—send food, spread hope, and serve humanity. But we
+                                can’t do it alone. Your contribution—whether big or small—goes directly towards
+                                preparing, packing, and delivering nutritious meals to those who need them most.</p>
+                            <a class="read_more" href="cause_details.html">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_cause">
+                        <div class="thumb">
+                            <img src="img/causes/5.png" alt="">
+                        </div>
+                        <div class="causes_content">
+                            <div class="custom_progress_bar">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 30%;" aria-valuenow="30"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                        <span class="progres_count">
+                                            30%
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="balance d-flex justify-content-between align-items-center">
+                                <span>Raised: $5000.00 </span>
+                                <span>Goal: $9000.00 </span>
+                            </div>
+                            <a href="cause_details.html">
+                                <h4>Clothes For Everyone</h4>
+                            </a>
+
+                            <p>At HopeBites, we believe that everyone deserves the comfort and confidence that comes
+                                with having clean, warm clothing. Your kindness can help us provide clothes to children,
+                                families, and individuals in need—restoring not just warmth but also dignity.</p>
+                            <a class="read_more" href="cause_details.html">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_cause">
+                        <div class="thumb">
+                            <img src="img/causes/6.png" alt="">
+                        </div>
+                        <div class="causes_content">
+                            <div class="custom_progress_bar">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 30%;" aria-valuenow="30"
+                                        aria-valuemin="0" aria-valuemax="100">
+                                        <span class="progres_count">
+                                            30%
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="balance d-flex justify-content-between align-items-center">
+                                <span>Raised: $5000.00 </span>
+                                <span>Goal: $9000.00 </span>
+                            </div>
+                            <a href="cause_details.html">
+                                <h4>Water For All Children</h4>
+                            </a>
+
+                            <p>Around the world, millions of children suffer due to the lack of clean drinking water,
+                                leading to illness, hunger, and lost opportunities. HopeBites is on a mission to ensure
+                                that no child is left thirsty or vulnerable because of water scarcity.</p>
+                            <a class="read_more" href="cause_details.html">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer_start  -->
+    <footer class="footer">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-md-6 col-lg-4 ">
+                        <div class="footer_widget">
+                            <div class="footer_logo">
+                                <a href="#">
+                                    <img src="img/food.png" alt="">
+                                </a>
+                                <span style="font-size: 35px;  color: #070707;">HopeBites</span>
+                            </div>
+                            <p class="address_text">A Digital Initiative to Minimize <br> Food Waste and Feed the Needy.
+                            </p>
+                            <div class="socail_links">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class="ti-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="ti-twitter-alt"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-dribbble"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-2">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Services
+                            </h3>
+                            <ul class="links">
+                                <li><a href="#">Donate</a></li>
+                                <li><a href="#">Sponsor</a></li>
+                                <li><a href="#">Fundraise</a></li>
+                                <li><a href="#">Volunteer</a></li>
+                                <li><a href="#">Partner</a></li>
+                                <li><a href="#">Jobs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Contacts
+                            </h3>
+                            <div class="contacts">
+                                <p>+91-7371975296 <br>
+                                    info@hopebites.com <br>
+                                    Hostle 3, Manuu Campus, Gachibowli
+                                    Hyderabad, Telengana- 500008
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Top News
+                            </h3>
+                            <ul class="news_links">
+                                <li>
+                                    <div class="thumb">
+                                        <a href="#">
+                                            <img src="img/news/news_1.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="info">
+                                        <a href="#">
+                                            <h4>Food for
+                                                Childrens</h4>
+                                        </a>
+                                        <span>Jun 12, 2019</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="thumb">
+                                        <a href="#">
+                                            <img src="img/news/news_2.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="info">
+                                        <a href="#">
+                                            <h4>Clothes for
+                                                Childrens</h4>
+                                        </a>
+                                        <span>Jun 12, 2019</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy-right_text">
+            <div class="container">
+                <div class="row">
+                    <div class="bordered_1px "></div>
+                    <div class="col-xl-12">
+                        <p class="copy_right text-center">
+                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This
+                            website is made with <i class="ti-heart" aria-hidden="true"></i> by Tauseef Tanwir</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer_end  -->
+
+    <!-- link that opens popup -->
+<script>
+    async function submitDonation(event) {
+    event.preventDefault();
+
+    const donationCountry = document.querySelector('input[name="country"]:checked').value;
+    const donationType = document.querySelector(".donate-btn.active").textContent.trim();
+    const amount = document.getElementById("customAmount").value || getSelectedAmount();
+    const fullName = document.getElementById("fullName").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const contactNo = document.getElementById("mobile").value.trim();
+    const country = donationCountry.trim();
+    const zipCode = document.getElementById("zip").value.trim();
+
+    if (!fullName || !email || !contactNo || !country || !zipCode || !amount) {
+        Swal.fire({
+            icon: "warning",
+            title: "Missing Fields",
+            text: "Please fill in all fields!",
+        });
+        return;
+    }
+
+    const donationData = {
+        full_name: fullName,
+        email: email,
+        contact_no: contactNo,
+        country: country,
+        zip_code: zipCode,
+        donation_type: donationType,
+        donation_country: donationCountry,
+        amount: parseFloat(amount),
+    };
+
+    try {
+        const response = await fetch("http://localhost:5000/api/donate/donate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(donationData),
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            Swal.fire({
+                icon: "success",
+                title: "Donation Successful!",
+                text: "Thank you for your donation!",
+                confirmButtonColor: "#14629F",
+            }).then(() => {
+                document.getElementById("donationForm").reset();
+            });
+        } else {
+            Swal.fire({
+                icon: "error",
+                title: "Donation Failed!",
+                text: result.message || "Failed to process donation.",
+            });
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        Swal.fire({
+            icon: "error",
+            title: "Oops!",
+            text: "Something went wrong. Please try again.",
+        });
+    }
+}
+
+document.querySelector(".donateNow-btn").addEventListener("click", submitDonation);
+
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- JS here -->
+    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/ajax-form.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/scrollIt.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/nice-select.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/gijgo.min.js"></script>
+    <!--contact js-->
+    <script src="js/contact.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/mail-script.js"></script>
+    <script src="js/register.js"></script>
+    <!-- Link to external JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
