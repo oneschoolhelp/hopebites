@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donation Page</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="donation-type">
+        <label>
+          <input type="radio" name="donation-type" value="indian" checked />
+          Indian
+        </label>
+        <label>
+          <input type="radio" name="donation-type" value="foreign" /> Foreign
+        </label>
+      </div>
+
+      <div class="donation-buttons">
+        <button class="btn">Give Once</button>
+        <button class="btn">Give Monthly</button>
+      </div>
+
+      <div class="amount-selection">
+        <p>Please select your donation amount (*1 Meal | ₹ 25/-)</p>
+        <div class="amount-buttons">
+          <button>₹50000</button>
+          <button>₹25000</button>
+          <button>₹10000</button>
+          <button>₹5000</button>
+          <button>₹2500</button>
+          <button>₹1000</button>
+        </div>
+        <input type="text" placeholder="Enter amount" />
+      </div>
+
+      <p>You pledge to serve <strong>0</strong> nutritious meals.</p>
+
+      <div class="payment-methods">
+        <p>We accept all major payment methods:</p>
+        <!-- Payment Icons (Add actual icons or images) -->
+        <img src="visa.png" alt="Visa" />
+        <img src="mastercard.png" alt="MasterCard" />
+        <img src="rupay.png" alt="RuPay" />
+        <img src="paytm.png" alt="Paytm" />
+        <img src="gpay.png" alt="GPay" />
+        <img src="upi.png" alt="UPI" />
+      </div>
+
+      <button class="proceed-btn">Proceed to Donate</button>
+      <p class="tax-info">Donations are tax exempted under 80G</p>
+    </div>
+  </body>
+</html>
