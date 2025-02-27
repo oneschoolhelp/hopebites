@@ -108,7 +108,7 @@ document.querySelector(".donateNow-btn").addEventListener("click", function () {
   }
 
   // Show the pop-up based on country selection
-  if (country === "india" || country === "Indian") {
+  if (country === "india" || country === "India" || country === "IN") {
       showPopup("barcode");
   } else {
       showPopup("bank");
@@ -121,7 +121,7 @@ function showPopup(type) {
   popup.innerHTML = `
       <div class="popup-content">
           <span class="close-btn" onclick="closePopup()">&times;</span>
-          ${type === "barcode" ? `<img src="path-to-barcode-image.jpg" alt="Scan to Donate" class="barcode-img">` : `<p>Bank Details: Account No: 123456789, IFSC: ABCD1234, Bank: XYZ Bank</p>`}
+          ${type === "barcode" ? `<img src="img/payment/TauseefPaymentBarcode.jpg" alt="Scan to Donate" class="barcode-img">` : `<p>Bank Details: Account No: 123456789, IFSC: ABCD1234, Bank: XYZ Bank</p>`}
       </div>
   `;
   document.body.appendChild(popup);
