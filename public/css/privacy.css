@@ -1,0 +1,49 @@
+/* General Page Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding-top: 80px; /* Adjust to ensure it's below the navigation bar */
+}
+
+/* Privacy Policy Container */
+.privacy-container {
+    background: #fff;
+   
+    padding: 60px;
+    width: 60%;
+    max-width: 900px;
+    margin: 100px auto 30px; /* Added margin-top to push it below navbar */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* Headings */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+h2 {
+    color: #28a745; /* Green color */
+    margin-top: 20px;
+}
+
+/* List Styling */
+ul {
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 5px;
+}
+
+/* Rights Section */
+.rights {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 30px;
+    color: #555;
+}
