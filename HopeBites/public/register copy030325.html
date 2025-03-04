@@ -1,37 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="zxx">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>HopeBites</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/food.png">
+    <link rel="shortcut icon" type="image/x-icon" href="img/food.png" />
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <link rel="stylesheet" href="css/nice-select.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/gijgo.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/slicknav.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/themify-icons.css" />
+    <link rel="stylesheet" href="css/nice-select.css" />
+    <link rel="stylesheet" href="css/flaticon.css" />
+    <link rel="stylesheet" href="css/gijgo.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/slicknav.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/register.css" />
+
+
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 
 <body>
-    <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
-
 
     <!-- header-start -->
     <header>
@@ -75,7 +76,7 @@
                                         style="display: flex; align-items: center; text-decoration: none;">
                                         <img src="img/food.png" alt="" style="height: 50px; margin-right: 10px;">
                                         <div>
-                                            <span style="font-size: 40px; color: #f8f8f8; ">HopeBites</span><br>
+                                            <span style="font-size: 40px; color: #f8f8f8;">HopeBites</span><br>
                                             
                                         </div>
                                     </a>
@@ -119,19 +120,107 @@
     </header>
     <!-- header-end -->
 
-    <!-- bradcam_area_start  -->
-    <div class="bradcam_area breadcam_bg overlay d-flex align-items-center justify-content-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="bradcam_text text-center">
-                        <h3>Causes</h3>
+
+    <div class="registration-container">
+        <!-- Donation amount-->
+        <div id="step1">
+            <!-- Radio Buttons Added in Step 2 -->
+            <div class="radio-group" class="label">
+                <input type="radio" id="Indian" name="country" value="Inidan" checked />
+                <label for="Indian" class="radio-label">Indian</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" id="foreign" name="country" value="Foreign" />
+                <label for="foreign" class="radio-label">Foreign</label>
+            </div>
+
+            <!-- Donation Type Buttons -->
+            <div class="donation-type">
+                <button class="donate-btn active" onclick="toggleDonationType('once')">
+                    Give Once
+                </button>
+                <button class="donate-btn" onclick="toggleDonationType('monthly')">
+                    Give Monthly
+                </button>
+            </div>
+
+            <!-- Donation Amount Selection -->
+            <p class="label">
+                <strong>Please select your donation amount</strong> (*1 meal | ₹30/-)
+            </p>
+
+            <div id="donation-options" class="donation-options">
+                <!-- Buttons will be inserted via JavaScript -->
+            </div>
+
+            <!-- Custom Amount Input -->
+            <input type="number" id="customAmount" placeholder="Enter amount" oninput="validateAmount()" />
+            <p id="error-msg" class="error-msg"></p>
+
+            <!-- Total Meals Calculation -->
+            <p class="total-served">
+                Thanks to you, <span id="totalServed" class="label">0</span> meals will be served to those in need.
+            </p>
+            <img src="img/payment/payment-icons.webp" alt="" style="height: 40px; display: block; margin: 0 auto;" />
+
+            <!-- Continue Button -->
+            <div class="button-container">
+                <button class="continue-btn" onclick="nextStep()">Proceed To Donate</button>
+            </div>
+
+        </div>
+        <!-- First Name & Last Name on the Same Line -->
+        <div id="step2">
+            <button class="back-btn" onclick="prevStep()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+            </button>
+
+            <div class="input-group">
+                <div>
+                    <div class="input-row">
+                        <label class="label-row" for="fullName">Full Name:</label>
+                        <label class="label-row" for="email">Email Address:</label>
+                    </div>
+                    <div class="input-row">
+                        <input class="name-field" type="text" id="fullName" name="fullName"
+                            placeholder="Enter Full Name" required />
+                        <input class="name-field" type="email" id="email" name="email" placeholder="example@mail.com"
+                            required />
                     </div>
                 </div>
             </div>
+            <div class="input-group">
+                <label class="label-row" for="mobile">Contact No:</label>
+                <input type="tel" id="mobile" name="mobile" placeholder="Enter Contact Number" required />
+            </div>
+
+            <div class="input-group">
+                <label class="label-row" for="country">Country:</label>
+                <input type="text" id="country" name="country" placeholder="Enter Country" required />
+            </div>
+
+            <div class="input-group">
+                <label class="label-row" for="zip">Zip Code:</label>
+                <input type="text" id="zip" name="zip" placeholder="Enter Zip Code" required />
+            </div>
+            <div class="submit-container">
+                <button class="donateNow-btn">Donate Now</button>
+            </div>
+            <p class="terms-text">
+                &#9432; I agree to the
+                <a href="terms.html">Terms</a> and
+                <a href="privacy.html">Privacy Policy</a>
+            </p>
         </div>
     </div>
-    <!-- bradcam_area_end  -->
+    </form>
+    </div>
+    <div class="body d-flex align-items-center justify-content-center">
+
+    </div>
 
     <!-- popular_causes_area_start  -->
     <div class="popular_causes_area pt-120">
@@ -326,68 +415,6 @@
     </div>
     <!-- popular_causes_area_end  -->
 
-
-    <!-- <div data-scroll-index='1' class="make_donation_area section_padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section_title text-center mb-55">
-                        <h3><span>Make a Donation</span></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <form action="#" class="donation_form">
-                        <div class="row align-items-center">
-                            <div class="col-md-4">
-                                <div class="single_amount">
-                                    <div class="input_field">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                              <span class="input-group-text" id="basic-addon1">$</span>
-                                            </div>
-                                            <input type="text" class="form-control" placeholder="40,200" aria-label="Username" aria-describedby="basic-addon1">
-                                          </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="single_amount">
-                                   <div class="fixed_donat d-flex align-items-center justify-content-between">
-                                       <div class="select_prise">
-                                           <h4>Select Amount:</h4>
-                                       </div>
-                                        <div class="single_doonate"> 
-                                            <input type="radio" id="blns_1" name="radio-group" checked>
-                                            <label for="blns_1">10</label>
-                                        </div>
-                                        <div class="single_doonate"> 
-                                            <input type="radio" id="blns_2" name="radio-group" checked>
-                                            <label for="blns_2">30</label>
-                                        </div>
-                                        <div class="single_doonate"> 
-                                            <input type="radio" id="Other" name="radio-group" checked>
-                                            <label for="Other">Other</label>
-                                        </div>
-                                   </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="donate_now_btn text-center">
-                        <a href="#" class="boxed-btn4">Donate Now</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div> -->
-
     <!-- footer_start  -->
     <footer class="footer">
         <div class="footer_top">
@@ -518,7 +545,7 @@
         </div>
     </footer>
     <!-- footer_end  -->
-
+    
     <!-- link that opens popup -->
 
     <!-- JS here -->
@@ -546,7 +573,8 @@
     <script src="js/jquery.form.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/mail-script.js"></script>
-
+    <script src="js/register.js"></script>
+    <!-- Link to external JavaScript -->
     <script src="js/main.js"></script>
 </body>
 
