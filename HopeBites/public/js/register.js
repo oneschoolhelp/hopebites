@@ -21,8 +21,8 @@ function updateCurrency() {
     labelText.innerHTML = "<strong>Please select your donation amount</strong> (*1 meal | $0.34)";
     customAmountInput.placeholder = "Enter amount in $";
   } else {
-    labelText.innerHTML = "<strong>Please select your donation amount</strong> (*1 meal | Rs 30/-)";
-    customAmountInput.placeholder = "Enter amount in Rs";
+    labelText.innerHTML = "<strong>Please select your donation amount</strong> (*1 meal | ₹30/-)";
+    customAmountInput.placeholder = "Enter amount in ₹";
   }
 
   toggleDonationType(document.querySelector(".donate-btn.active").getAttribute("onclick").split("'")[1]);
@@ -72,7 +72,7 @@ function validateAmount() {
   let minAmount = isForeign ? 10 : 200; // Minimum amount check
 
   if (amount < minAmount) {
-    errorMsg.innerText = `Minimum donation amount ${isForeign ? "$10" : "INR 200"}`;
+    errorMsg.innerText = `Minimum donation amount ${isForeign ? "$5" : "INR 200"}`;
   } else {
     errorMsg.innerText = "";
   }
@@ -85,9 +85,13 @@ function validateAmount() {
 function nextStep() {
   let amount = document.getElementById("customAmount").value;
   let errorMsg = document.getElementById("error-msg");
+  let isForeign = document.getElementById("foreign").checked; // Check if Foreign is selected
 
-  if (!amount || amount < 200) {
-    errorMsg.innerText = "Please enter a valid amount (Minimum INR 200)";
+  let minAmount = isForeign ? 5 : 200; // Minimum $3 for Foreign, INR 200 for Indian
+  let currencySymbol = isForeign ? "$" : "INR"; // Currency Symbol Change
+
+  if (!amount || amount < minAmount) {
+    errorMsg.innerText = `Please enter a valid amount (Minimum ${currencySymbol} ${minAmount})`;
     return;
   }
 
