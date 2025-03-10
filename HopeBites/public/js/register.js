@@ -2,46 +2,64 @@ document.addEventListener("DOMContentLoaded", function () {
   // Ensure Step 1 is visible at the start
   document.getElementById("step1").classList.remove("hidden");
   document.getElementById("step2").classList.add("hidden");
+
   toggleDonationType("once"); // Set default donation type
+  updateCurrency(); // Ensure currency updates correctly at the start
+  
+    // Listen for changes in country selection
+    document.querySelectorAll('input[name="country"]').forEach((radio) => {
+      radio.addEventListener("change", updateCurrency);
+    });
 });
 
+function updateCurrency() {
+  let isForeign = document.getElementById("foreign").checked;
+  let labelText = document.querySelector(".label strong");
+  let customAmountInput = document.getElementById("customAmount");
+
+  if (isForeign) {
+    labelText.innerHTML = "<strong>Please select your donation amount</strong> (*1 meal | $0.34)";
+    customAmountInput.placeholder = "Enter amount in $";
+  } else {
+    labelText.innerHTML = "<strong>Please select your donation amount</strong> (*1 meal | Rs 30/-)";
+    customAmountInput.placeholder = "Enter amount in Rs";
+  }
+
+  toggleDonationType(document.querySelector(".donate-btn.active").getAttribute("onclick").split("'")[1]);
+}
+
 function toggleDonationType(type) {
-  document
-    .querySelectorAll(".donate-btn")
-    .forEach((btn) => btn.classList.remove("active"));
-  document
-    .querySelector(`.donate-btn[onclick="toggleDonationType('${type}')"]`)
-    .classList.add("active");
+  document.querySelectorAll(".donate-btn").forEach((btn) => btn.classList.remove("active"));
+  document.querySelector(`.donate-btn[onclick="toggleDonationType('${type}')"]`).classList.add("active");
 
   let donationOptions = document.getElementById("donation-options");
   donationOptions.innerHTML = "";
+  let isForeign = document.getElementById("foreign").checked;
 
-  let amounts =
-    type === "once"
-      ? [50000, 25000, 10000, 5000, 2500, 1000]
-      : [5000, 3000, 2000, 1000, 500, 250];
+  let amounts = isForeign
+    ? type === "once"
+      ? [600, 300, 200, 100, 50, 25] // Foreign One-time
+      : [100, 75, 50, 25, 15, 10] // Foreign Monthly
+    : type === "once"
+    ? [50000, 25000, 10000, 5000, 2500, 1000] // Indian One-time
+    : [5000, 3000, 2000, 1000, 500, 250]; // Indian Monthly
 
   amounts.forEach((amount) => {
     let button = document.createElement("button");
     button.className = "amount-btn";
-    button.innerText = amount.toLocaleString();
+    button.innerText = isForeign ? `$${amount}` : `₹${amount}`;
     button.addEventListener("click", function () {
-      selectAmount(this, amount); // Pass `this` (the button itself) and `amount`
+      selectAmount(this, amount, isForeign);
     });
     donationOptions.appendChild(button);
   });
 }
 
-function selectAmount(selectedButton, amount) {
-  // Remove 'active' class from all amount buttons
-  document
-    .querySelectorAll(".amount-btn")
-    .forEach((btn) => btn.classList.remove("active"));
-
-  // Add 'active' class to the selected button
+function selectAmount(selectedButton, amount, isForeign) {
+  document.querySelectorAll(".amount-btn").forEach((btn) => btn.classList.remove("active"));
   selectedButton.classList.add("active");
 
-  // Set selected amount
+  let currencySymbol = isForeign ? "$" : "₹";
   document.getElementById("customAmount").value = amount;
   validateAmount();
 }
@@ -50,15 +68,19 @@ function validateAmount() {
   let amount = document.getElementById("customAmount").value;
   let errorMsg = document.getElementById("error-msg");
   let totalServed = document.getElementById("totalServed");
+  let isForeign = document.getElementById("foreign").checked;
+  let minAmount = isForeign ? 10 : 200; // Minimum amount check
 
-  if (amount < 200) {
-    errorMsg.innerText = "Minimum donation amount INR 200";
+  if (amount < minAmount) {
+    errorMsg.innerText = `Minimum donation amount ${isForeign ? "$10" : "INR 200"}`;
   } else {
     errorMsg.innerText = "";
   }
 
-  totalServed.innerText = Math.ceil(amount / 30);
+  let mealCost = isForeign ? 0.34 : 30;
+  totalServed.innerText = Math.ceil(amount / mealCost);
 }
+
 
 function nextStep() {
   let amount = document.getElementById("customAmount").value;
